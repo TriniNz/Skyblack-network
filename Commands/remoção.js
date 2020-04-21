@@ -28,36 +28,36 @@ exports.run = async (Discord, client, message, args, db, serverinfo) => {
     
     if(!Member) return message.channel.send(new Discord.RichEmbed()
         .setTitle('⚠️ Ops!')
-        .setDescription("Comando utilizado incorretamente. Use `.promover @Membro @Cargo`")
+        .setDescription("Comando utilizado incorretamente. Use `.remover @Membro @Cargo`")
         .setFooter("SkyBlack Network ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
         .setColor(serverinfo.map('color').value()[0])
     ).then(msg => {msg.delete(15*1000); message.delete(15*1000)});
 
     if(!Role) return message.channel.send(new Discord.RichEmbed()
         .setTitle('⚠️ Ops!')
-        .setDescription("Comando utilizado incorretamente. Use `.promover @Membro @Cargo`")
+        .setDescription("Comando utilizado incorretamente. Use `.remover @Membro @Cargo`")
         .setFooter("SkyBlack Network ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
         .setColor(serverinfo.map('color').value()[0])
     ).then(msg => {msg.delete(15*1000); message.delete(15*1000)});
 
-    if(Member.roles.get(Role.id)) return message.channel.send(new Discord.RichEmbed()
+    if(!Member.roles.find(r => r.id == Role.id)) return message.channel.send(new Discord.RichEmbed()
         .setTitle('⚠️ Ops!')
-        .setDescription(`O membro ${Member} já é um ${Role}.`)
+        .setDescription(`O membro ${Member} não é um ${Role}.`)
         .setFooter("SkyBlack Network ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
         .setColor(serverinfo.map('color').value()[0])
     ).then(msg => {msg.delete(15*1000); message.delete(15*1000)});
 
     ch.send(new Discord.RichEmbed()
         .setAuthor("👥 Changelog.", message.guild.iconURL)
-        .setDescription(`${Member} foi promovido a ${Role}.`)
+        .setDescription(`${Member} foi removido da equipe.`)
         .setFooter(`Responsavel: ${message.author.username} • SkyBlack Network ©️`)
         .setColor(serverinfo.map('color').value()[0])
     )
 
-    Member.addRole(Role)
+    Member.removeRole(Role)
 
     message.channel.send(new Discord.RichEmbed()
-        .setFooter(`${Member.user.username} foi promovido a ${Role.name} por ${message.author.username} com sucesso.`)
+        .setFooter(`${Member.user.username} perdeu seu cargo de ${Role.name}. Responsavel: ${message.author.username}.`)
         .setColor(serverinfo.map('color').value()[0])
     ).then(msg =>{msg.delete(15*1000); message.delete(15*1000)})
     

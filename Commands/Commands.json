@@ -10,6 +10,16 @@
                 "admitir",
                 "adicionar"
             ]
+        },
+        {
+            "name":"remoção",
+            "desc":"Remove determinado cargo de um membro.",
+            "uso":"Remover @Membro @Cargo.",
+            "manutenção":false,
+            "aliases":[
+                "remoção",
+                "remover"
+            ]
         }
     ]
 }
