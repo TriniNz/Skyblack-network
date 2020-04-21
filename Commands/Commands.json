@@ -1,0 +1,15 @@
+{
+    "Commands":[
+        {
+            "name":"promover",
+            "desc":"Promove um membro a determinado carago.",
+            "uso":"Promover @Membro @Cargo.",
+            "manutenção":false,
+            "aliases":[
+                "promover",
+                "admitir",
+                "adicionar"
+            ]
+        }
+    ]
+}

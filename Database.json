@@ -1,0 +1,20 @@
+{
+    "Serverconfig":[
+        {
+            "ChangelogChannel":"570796258835562496",
+            "color":"ff9933",
+            "devmod": false,
+            "IP": "Configure o bot utilizando o comando .svconfig",
+            "prefix":".",
+            "padrãoPrefix":".",
+            "URLFormulario":"Configure o bot utilizando o comando .svconfig",
+            "FormOption": false,
+            "URLloja":"Configure o bot utilizando o comando .svconfig",
+            "URLTwitter":"Configure o bot utilizando o comando .svconfig",
+            "URLFacebook":"Configure o bot utilizando o comando .svconfig",
+            "URLYT":"Configure o bot utilizando o comando .svconfig",
+            "MiniYTReqs":"Configure o bot utilizando o comando .svconfig",
+            "YTReqs":"Configure o bot utilizando o comando .svconfig"
+        }
+    ]
+}
