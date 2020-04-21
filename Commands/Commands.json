@@ -1,6 +1,17 @@
 {
     "Commands":[
         {
+            "name":"anunciar",
+            "desc":"Anuncia uma mensagem personalizada.",
+            "uso":".anunciar @Canal Texto a ser anunciado.",
+            "manutenção":false,
+            "aliases":[
+                "anunciar",
+                "say",
+                "anuncio"
+            ]
+        },
+        {
             "name":"promover",
             "desc":"Promove um membro a determinado carago.",
             "uso":"Promover @Membro @Cargo.",

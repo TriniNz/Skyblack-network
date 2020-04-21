@@ -1,7 +1,7 @@
 {
     "Serverconfig":[
         {
-            "ChangelogChannel":"570796258835562496",
+            "ChangelogChannel":"Configure o bot utilizando o comando .svconfig",
             "color":"ff9933",
             "devmod": false,
             "IP": "Configure o bot utilizando o comando .svconfig",
