@@ -1,9 +1,20 @@
 {
     "Commands":[
         {
+            "name":"sugestão",
+            "desc":"Enviará sua sugestão a conhecimento dos superiores.",
+            "uso":"sugestão",
+            "manutenção":false,
+            "aliases":[
+                "sugestão",
+                "sugestionar",
+                "sugestao"
+            ]
+        },
+        {
             "name":"equipe",
-            "desc":"Anuncia uma mensagem personalizada.",
-            "uso":".anunciar @Canal Texto a ser anunciado.",
+            "desc":"Mostra ao membro todos os membros da equipe.",
+            "uso":"equipe",
             "manutenção":false,
             "aliases":[
                 "equipe",
@@ -14,7 +25,7 @@
         {
             "name":"anunciar",
             "desc":"Anuncia uma mensagem personalizada.",
-            "uso":".anunciar @Canal Texto a ser anunciado.",
+            "uso":"anunciar @Canal Texto a ser anunciado.",
             "manutenção":false,
             "aliases":[
                 "anunciar",

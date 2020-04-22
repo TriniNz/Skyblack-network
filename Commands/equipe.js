@@ -34,5 +34,5 @@ exports.run = async (Discord, client, message, args, db, serverinfo) => {
         }
     }
 
-    message.channel.send({ embed: Embed});
+    message.channel.send({ embed: Embed}).then(msg => {msg.delete(60*1000); message.delete(60*1000)});
 }
