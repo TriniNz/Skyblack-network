@@ -2,9 +2,21 @@
     "Commands":[
         
         {
+            "name":"social",
+            "desc":"Lhe mostra as partes sociais do servidor!",
+            "uso":"reqs",
+            "manutenção":false,
+            "aliases":[
+                "social",
+                "twitter",
+                "facebook",
+                "loja"
+            ]
+        },
+        {
             "name":"reqs",
             "desc":"Lhe mostra os requisitos para se tornar parceiro do servidor.",
-            "uso":"report",
+            "uso":"reqs",
             "manutenção":false,
             "aliases":[
                 "reqs",
@@ -16,7 +28,7 @@
         {
             "name":"form",
             "desc":"Lhe mostra o formulario para aplicação, caso haja vagas.",
-            "uso":"report",
+            "uso":"form",
             "manutenção":false,
             "aliases":[
                 "form",
