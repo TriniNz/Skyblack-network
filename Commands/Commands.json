@@ -1,5 +1,18 @@
 {
     "Commands":[
+        
+        {
+            "name":"form",
+            "desc":"Lhe mostra o formulario para aplicação, caso haja vagas.",
+            "uso":"report",
+            "manutenção":false,
+            "aliases":[
+                "form",
+                "aplicar-se",
+                "aplicar",
+                "formulario"
+            ]
+        },
         {
             "name":"report",
             "desc":"Enviará uma denuncia anonima aos superiores.",
