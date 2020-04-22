@@ -8,6 +8,7 @@
             "FormOption": false,
             "sugestionChannel":"Configure o bot utilizando o comando .svconfig",
             "ChangelogChannel":"Configure o bot utilizando o comando .svconfig",
+            "reportsChannel":"Configure o bot utilizando o comando .svconfig",
             "IP": "Configure o bot utilizando o comando .svconfig",
             "YTReqs":"Configure o bot utilizando o comando .svconfig",
             "URLFormulario":"Configure o bot utilizando o comando .svconfig",

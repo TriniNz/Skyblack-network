@@ -1,6 +1,18 @@
 {
     "Commands":[
         {
+            "name":"report",
+            "desc":"Enviará uma denuncia anonima aos superiores.",
+            "uso":"report",
+            "manutenção":false,
+            "aliases":[
+                "report",
+                "reportar",
+                "denunciar",
+                "denuncia"
+            ]
+        },
+        {
             "name":"help",
             "desc":"Mostra todos os comandos e como utiliza-los",
             "uso":"help",
