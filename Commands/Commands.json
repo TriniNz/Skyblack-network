@@ -2,6 +2,18 @@
     "Commands":[
         
         {
+            "name":"reqs",
+            "desc":"Lhe mostra os requisitos para se tornar parceiro do servidor.",
+            "uso":"report",
+            "manutenção":false,
+            "aliases":[
+                "reqs",
+                "yt",
+                "miniyt",
+                "requisitos"
+            ]
+        },
+        {
             "name":"form",
             "desc":"Lhe mostra o formulario para aplicação, caso haja vagas.",
             "uso":"report",
