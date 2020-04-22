@@ -1,6 +1,17 @@
 {
     "Commands":[
         {
+            "name":"equipe",
+            "desc":"Anuncia uma mensagem personalizada.",
+            "uso":".anunciar @Canal Texto a ser anunciado.",
+            "manutenção":false,
+            "aliases":[
+                "equipe",
+                "moderadores",
+                "staff"
+            ]
+        },
+        {
             "name":"anunciar",
             "desc":"Anuncia uma mensagem personalizada.",
             "uso":".anunciar @Canal Texto a ser anunciado.",
