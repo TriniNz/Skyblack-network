@@ -1,6 +1,18 @@
 {
     "Commands":[
         {
+            "name":"help",
+            "desc":"Mostra todos os comandos e como utiliza-los",
+            "uso":"help",
+            "manutenção":false,
+            "aliases":[
+                "help",
+                "ajuda",
+                "comandos",
+                "cmdlist"
+            ]
+        },
+        {
             "name":"sugestão",
             "desc":"Enviará sua sugestão a conhecimento dos superiores.",
             "uso":"sugestão",

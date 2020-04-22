@@ -18,7 +18,7 @@ exports.run = async (Discord, client, message, db, dbcmd) => {
             if(cmdSearch.manutenção) return require('../Commands/Manutenção.js').run(Discord, client, message, args, db);
 
             let cmdFound = require(`../Commands/${cmdSearch.name}.js`);
-            return cmdFound.run(Discord, client, message, args, db, serverinfo)
+            return cmdFound.run(Discord, client, message, args, db, serverinfo, dbcmd)
         } catch(Err) {
 
             if(Err.message === "Cannot read property 'manutenção' of undefined") return message.channel.send(new Discord.RichEmbed()
