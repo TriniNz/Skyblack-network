@@ -6,6 +6,8 @@
             "prefix":".",
             "padrãoPrefix":".",
             "FormOption": false,
+            "ticketMessageID":"Configure o bot utilizando o comando .svconfig",
+            "ticketCategoryID":"Configure o bot utilizando o comando .svconfig",
             "sugestionChannel":"Configure o bot utilizando o comando .svconfig",
             "ChangelogChannel":"Configure o bot utilizando o comando .svconfig",
             "reportsChannel":"Configure o bot utilizando o comando .svconfig",
