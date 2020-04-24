@@ -16,7 +16,7 @@ require('dotenv').config()
 
 client.on('ready', () =>  {
     try {
-        require('./Events/ready.js').run(Discord, client);
+        require('./Events/ready.js').run(Discord, client, db);
     } catch (err) {
         console.log(err + "\n\n Houve um erro no evento ready.")
     }

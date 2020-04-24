@@ -20,8 +20,8 @@ exports.run = async (Discord, client, message, args, db, serverinfo) => {
     ).then(msg => {msg.delete(15*1000); message.delete(15*1000)});
 
     message.author.send(new Discord.RichEmbed()
-        .setTitle('🗳️ SkyBlack Denucias!')
-        .setDescription("Prezando pela qualidade de nosso servidor, utilizamos o sistema de reportes anonimos, ou seja, você pode reportar sem medo de que algo lhe aconteça.")
+        .setTitle('🗳️ SkyBlack Denúncias!')
+        .setDescription("Prezando pela qualidade de nosso servidor, utilizamos o sistema de reportes anônimos, ou seja, você pode reportar sem medo de que algo lhe aconteça.")
         .addField('Para começar.',`Qual o nick utilizado pelo denunciado? `)
         .setFooter("SkyBlack Network ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
         .setColor(serverinfo.map('color').value()[0])
@@ -34,8 +34,8 @@ exports.run = async (Discord, client, message, args, db, serverinfo) => {
             nick = c.content;
 
             message.author.send(new Discord.RichEmbed()
-                .setTitle('🗳️ SkyBlack Denucias!')
-                .addField('Agora responda.',`Qual motivo desta denuncia? (Uso de hack, spam, flood, e etc.)`)
+                .setTitle('🗳️ SkyBlack Denúncias!')
+                .addField('Agora responda.',`Qual motivo desta denúncia? (Uso de hack, spam, flood, e etc.)`)
                 .setFooter("SkyBlack Network ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
                 .setColor(serverinfo.map('color').value()[0])
             ).then(async sendedtwo => {
@@ -46,7 +46,7 @@ exports.run = async (Discord, client, message, args, db, serverinfo) => {
                     motivo = ctwo.content;
         
                     message.author.send(new Discord.RichEmbed()
-                        .setTitle('🗳️ SkyBlack Denucias!')
+                        .setTitle('🗳️ SkyBlack Denúncias!')
                         .addField('Agora responda.',`Preencha com provas. (Prints, videos e etc.)`)
                         .setFooter("SkyBlack Network ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
                         .setColor(serverinfo.map('color').value()[0])
@@ -58,7 +58,7 @@ exports.run = async (Discord, client, message, args, db, serverinfo) => {
                             prova = cthree.content;
                 
                             message.author.send(new Discord.RichEmbed()
-                                .setTitle('🗳️ SkyBlack Denucias!')
+                                .setTitle('🗳️ SkyBlack Denúncias!')
                                 .addField('Agora responda.',`Detalhadamente, explique o que ocorreu.`)
                                 .setFooter("SkyBlack Network ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
                                 .setColor(serverinfo.map('color').value()[0])
@@ -70,8 +70,8 @@ exports.run = async (Discord, client, message, args, db, serverinfo) => {
                                     detalhes = ctfour.content;
                         
                                     message.author.send(new Discord.RichEmbed()
-                                        .setTitle('🗳️ SkyBlack Denucias!')
-                                        .setDescription("O resultado de sua denuncia foi este. Caso queira cancelar, basta reagir com ❎, ou se deseja envia-lá reaja com ✅.")
+                                        .setTitle('🗳️ SkyBlack Denúncias!')
+                                        .setDescription("O resultado de sua denúncia foi este. Caso queira cancelar, basta reagir com ❎, ou se deseja envia-lá reaja com ✅.")
                                         .addField("Usuario reportado:", nick)
                                         .addField("Motivo:", motivo)
                                         .addField("Provas:", prova)
@@ -88,7 +88,7 @@ exports.run = async (Discord, client, message, args, db, serverinfo) => {
                                                 if(reac.emoji.name == '✅') {
 
                                                 Ch.send(new Discord.RichEmbed()
-                                                    .setTitle('🗳️ SkyBlack Denucias!')
+                                                    .setTitle('🗳️ SkyBlack Denúncias!')
                                                     .setDescription("Foi enviada uma nova denuncia.")
                                                     .addField("Usuario reportado:", nick)
                                                     .addField("Motivo:", motivo)
@@ -100,7 +100,7 @@ exports.run = async (Discord, client, message, args, db, serverinfo) => {
                                                 )
                                         
                                                 message.author.send(new Discord.RichEmbed()
-                                                    .setFooter('✅ Sugestão enviada!')
+                                                    .setFooter('✅ Denúncia enviada!')
                                                     .setColor(serverinfo.map('color').value()[0])
                                                 )
 

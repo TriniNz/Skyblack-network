@@ -27,7 +27,7 @@ exports.run = async (Discord, client, raw, db) => {
         })
 
         await Ch.send(new Discord.RichEmbed()
-            .setTitle(`${author, raw.d.emoji.name} BlackSky Suporte!`)
+            .setTitle(`${raw.d.emoji.name} BlackSky Suporte!`)
             .setDescription(indetify(author, raw.d.emoji.name))
             .setFooter("SkyBlack Network ©️ IP: " + serverinfo.map('IP').value(), guild.iconURL)
             .setColor(serverinfo.map('color').value()[0])

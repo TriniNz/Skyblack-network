@@ -4,6 +4,11 @@ exports.run = async (Discord, client, message, db, dbcmd) => {
     const prefix = serverinfo.map('prefix').value()
     const devmode = serverinfo.map('devmode').value()
 
+    if(message.isMentioned(client.user.id)) return message.channel.send(new Discord.RichEmbed()
+        .setFooter(`👋 Olá ${message.author.tag}, meu prefixo é ${prefix} use ${prefix}cmdlist para ter acesso a todos meus comandos.`)
+        .setColor(serverinfo.map('color').value()[0])
+    )
+
     if(message.channel.type == "dm" || message.author.bot || devmode && message.author.id != '429825875467304960') return;
 
     const args = message.content.trim().split(/ +/g);

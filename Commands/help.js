@@ -17,7 +17,7 @@ exports.run = async (Discord, client, message, args, db, serverinfo, dbcmd) => {
 
     message.channel.send(new Discord.RichEmbed()
         .setTitle('📖 Lista de comandos!')
-        .setDescription(`Meu prefixo é ${serverinfo.map('prefix').value()} e tenho ${info.length} registrados. Entre eles temos: \n\n${cmds[paginaAtual].join('\n')}`)
+        .setDescription(`Meu prefixo é ${serverinfo.map('prefix').value()} e tenho ${info.length} comandos registrados. Entre eles temos: \n\n${cmds[paginaAtual].join('\n')}`)
         .setFooter("SkyBlack Network ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
         .setColor(serverinfo.map('color').value()[0])
     ).then(async m => {
@@ -36,7 +36,7 @@ exports.run = async (Discord, client, message, args, db, serverinfo, dbcmd) => {
 
                 await m.edit(new Discord.RichEmbed()
                     .setTitle('📖 Lista de comandos!')
-                    .setDescription(`Meu prefixo é ${serverinfo.map('prefix').value()} e atualmente tenho ${info.length} registrados. Entre eles temos: \n\n${cmds[paginaAtual].join('\n')}`)
+                    .setDescription(`Meu prefixo é ${serverinfo.map('prefix').value()} e atualmente tenho ${info.length} comandos registrados. Entre eles temos: \n\n${cmds[paginaAtual].join('\n')}`)
                     .setFooter("SkyBlack Network ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
                     .setColor(serverinfo.map('color').value()[0])
                 )
@@ -51,7 +51,7 @@ exports.run = async (Discord, client, message, args, db, serverinfo, dbcmd) => {
             
                 await m.edit(new Discord.RichEmbed()
                     .setTitle('📖 Lista de comandos!')
-                    .setDescription(`Meu prefixo é ${serverinfo.map('prefix').value()} e atualmente tenho ${info.length} registrados. Entre eles temos: \n\n${cmds[paginaAtual].join('\n')}`)
+                    .setDescription(`Meu prefixo é ${serverinfo.map('prefix').value()} e atualmente tenho ${info.length} comandos registrados. Entre eles temos: \n\n${cmds[paginaAtual].join('\n')}`)
                     .setFooter("SkyBlack Network ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
                     .setColor(serverinfo.map('color').value()[0])
                 )

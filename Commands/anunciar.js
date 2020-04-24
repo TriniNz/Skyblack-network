@@ -25,7 +25,7 @@ exports.run = async (Discord, client, message, args, db, serverinfo) => {
 
 
     Ch.send(new Discord.RichEmbed()
-        .setTitle("🔔 Anuncio!")
+        .setTitle("🔔 Anúncio!")
         .setDescription(String)
         .setFooter(`Autor: ${message.author.username} • IP: ${serverinfo.map('IP').value()}`, message.author.displayAvatarURL)
         .setTimestamp(new Date())

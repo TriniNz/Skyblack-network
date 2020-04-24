@@ -1,7 +1,5 @@
 exports.run = async (Discord, client, message, args, db, serverinfo) => {
 
-    console.log(serverinfo.map('FormOption').value()[0])
-
     if(!serverinfo.map('FormOption').value()[0]) { 
         message.channel.send(new Discord.RichEmbed()
             .setTitle('👥 SkyBlack Forms')
