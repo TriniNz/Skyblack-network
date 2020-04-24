@@ -1,6 +1,18 @@
 {
     "Commands":[
-        
+        {
+            "name":"svconfig",
+            "desc":"Configura as ações do bot.",
+            "uso":"svconfig",
+            "manutenção":false,
+            "aliases":[
+                "svconfig",
+                "configurarbot",
+                "configbot",
+                "serverconfig"
+            ]
+
+        },
         {
             "name":"social",
             "desc":"Lhe mostra as partes sociais do servidor!",
