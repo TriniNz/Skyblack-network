@@ -7,11 +7,11 @@ const app = express();
 app.use(express.static("/app/Events/uptime/public"));
 
 app.get("/", function(request, response) {
-  response.sendFile(__dirname + "Events/uptime/views/index.html");
+  response.sendFile(__dirname + "/Events/uptime/views/index.html");
 });
 
 const listener = app.listen(process.env.PORT, function() {
-  console.log("Site iniciado na porta: " + listener.address().port + "\n\n");
+  console.log("Site iniciado na porta: " + listener.address().port + "\n");
 });
 
 

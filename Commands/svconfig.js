@@ -76,6 +76,7 @@ async function Desgin(Discord, client, message, args, db, serverinfo, msgInit) {
                 let Mc = msgInit.channel.createMessageCollector(msg => !msg.author.bot && msg.author.id == message.author.id, {max: 1, time: 60*1000})
 
                 Mc.on('collect', coll => {
+                    
                     if(!/^#[0-9A-F]{6}$/i.test(coll.content) && coll.content != "reset") return msgInit.edit(new Discord.RichEmbed()
                         .setTitle('⚙️ Server Config')
                         .setDescription('Operação cancelada. *O codigo enviado não é uma cor valida.*')
@@ -111,6 +112,7 @@ async function Desgin(Discord, client, message, args, db, serverinfo, msgInit) {
             let Mcc = msgInit.channel.createMessageCollector(msg => !msg.author.bot && msg.author.id == message.author.id, {max: 1, time: 60*1000})
 
             Mcc.on('collect', coll => {
+                
                 if(coll.content > 0 && coll.content < 3 && coll.content != "reset") return msgInit.edit(new Discord.RichEmbed()
                     .setTitle('⚙️ Server Config')
                     .setDescription('Operação cancelada. *O prefixo não possui caracteres suficientes ou ultrapassa o limite de 3 caracteres.*')
@@ -147,7 +149,7 @@ async function Desgin(Discord, client, message, args, db, serverinfo, msgInit) {
                 let Mccc = msgInit.channel.createMessageCollector(msg => !msg.author.bot && msg.author.id == message.author.id, {max: 1, time: 60*1000})
 
                 Mccc.on('collect', coll => {
-
+                    
                     msgInit.edit(new Discord.RichEmbed() 
                         .setTitle('⚙️ Server Config')
                         .setDescription(`Operação foi concluida com exito! O IP foi alterada para *${coll.content}*.`)
@@ -191,7 +193,7 @@ async function Social(Discord, client, message, args, db, serverinfo, msgInit) {
             let Mc = msgInit.channel.createMessageCollector(msg => !msg.author.bot && msg.author.id == message.author.id, {max: 1, time: 60*1000})
 
             Mc.on('collect', coll => {
-
+                
                 msgInit.edit(new Discord.RichEmbed() 
                     .setTitle('⚙️ Server Config')
                     .setDescription(`Operação foi concluida com exito! O YT foi alterada para *${coll.content}*.`)
@@ -214,7 +216,7 @@ async function Social(Discord, client, message, args, db, serverinfo, msgInit) {
             let Mcc = msgInit.channel.createMessageCollector(msg => !msg.author.bot && msg.author.id == message.author.id, {max: 1, time: 60*1000})
 
             Mcc.on('collect', coll => {
-
+                
                 msgInit.edit(new Discord.RichEmbed() 
                     .setTitle('⚙️ Server Config')
                     .setDescription(`Operação foi concluida com exito! O Faceebok foi alterada para *${coll.content}*.`)
@@ -237,7 +239,7 @@ async function Social(Discord, client, message, args, db, serverinfo, msgInit) {
                 let Mccc = msgInit.channel.createMessageCollector(msg => !msg.author.bot && msg.author.id == message.author.id, {max: 1, time: 60*1000})
 
                 Mccc.on('collect', coll => {
-
+                    
                     msgInit.edit(new Discord.RichEmbed() 
                         .setTitle('⚙️ Server Config')
                         .setDescription(`Operação foi concluida com exito! A loja foi alterada para *${coll.content}*.`)
@@ -260,7 +262,7 @@ async function Social(Discord, client, message, args, db, serverinfo, msgInit) {
                 let Mcccc = msgInit.channel.createMessageCollector(msg => !msg.author.bot && msg.author.id == message.author.id, {max: 1, time: 60*1000})
 
                 Mcccc.on('collect', coll => {
-
+                    
                     msgInit.edit(new Discord.RichEmbed() 
                         .setTitle('⚙️ Server Config')
                         .setDescription(`Operação foi concluida com exito! O Twitter foi alterada para *${coll.content}*.`)
@@ -306,7 +308,7 @@ async function GameOptions(Discord, client, message, args, db, serverinfo, msgIn
             let Mc = msgInit.channel.createMessageCollector(msg => !msg.author.bot && msg.author.id == message.author.id, {max: 1, time: 60*1000})
 
             Mc.on('collect', coll => {
-
+                
                 msgInit.edit(new Discord.RichEmbed() 
                     .setTitle('⚙️ Server Config')
                     .setDescription(`Operação foi concluida com exito! Os requisitos para Youtuber foram alterados para *${coll.content}*.`)
@@ -329,7 +331,7 @@ async function GameOptions(Discord, client, message, args, db, serverinfo, msgIn
             let Mcc = msgInit.channel.createMessageCollector(msg => !msg.author.bot && msg.author.id == message.author.id, {max: 1, time: 60*1000})
 
             Mcc.on('collect', coll => {
-
+                
                 msgInit.edit(new Discord.RichEmbed() 
                     .setTitle('⚙️ Server Config')
                     .setDescription(`Operação foi concluida com exito! Os requisitos para mini Youtuber foram alterados para *${coll.content}*.`)
@@ -378,7 +380,7 @@ async function GameOptions(Discord, client, message, args, db, serverinfo, msgIn
                 let Mcccc = msgInit.channel.createMessageCollector(msg => !msg.author.bot && msg.author.id == message.author.id, {max: 1, time: 60*1000})
 
                 Mcccc.on('collect', coll => {
-
+                    
                     msgInit.edit(new Discord.RichEmbed() 
                         .setTitle('⚙️ Server Config')
                         .setDescription(`Operação foi concluida com exito! O formulario foi alterado para *${coll.content}*.`)
@@ -425,7 +427,7 @@ async function BotFunctions(Discord, client, message, args, db, serverinfo, msgI
             let Mc = msgInit.channel.createMessageCollector(msg => !msg.author.bot && msg.author.id == message.author.id, {max: 1, time: 60*1000})
 
             Mc.on('collect', coll => {
-
+                
                 if(isNaN(coll.content) || coll.content.length != 18) return msgInit.edit(new Discord.RichEmbed()
                     .setTitle('⚙️ Server Config')
                     .setDescription('Operação cancelada. *Este ID não é valido.*')
@@ -455,7 +457,7 @@ async function BotFunctions(Discord, client, message, args, db, serverinfo, msgI
             let Mcc = msgInit.channel.createMessageCollector(msg => !msg.author.bot && msg.author.id == message.author.id, {max: 1, time: 60*1000})
 
             Mcc.on('collect', coll => {
-
+                
                 if(isNaN(coll.content) || coll.content.length != 18) return msgInit.edit(new Discord.RichEmbed()
                     .setTitle('⚙️ Server Config')
                     .setDescription('Operação cancelada. *Este ID não é valido.*')
@@ -477,7 +479,7 @@ async function BotFunctions(Discord, client, message, args, db, serverinfo, msgI
                 msgInit.clearReactions()
                 msgInit.edit(new Discord.RichEmbed()
                     .setTitle('⚙️ Server Config')
-                    .setDescription('Ligue ou desligue o DevMode. (Apenas developer pode ativar.)')
+                    .setDescription('Ligue ou desligue o DevMode. (Apenas o desenvolvedor pode ativar.)')
                     .setFooter("SkyBlack Network ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
                     .setColor(serverinfo.map('color').value()[0])
                 ).then(async msgInit => {await msgInit.react('✅'); await msgInit.react('❎');})
@@ -511,7 +513,7 @@ async function BotFunctions(Discord, client, message, args, db, serverinfo, msgI
             let Mcccc = msgInit.channel.createMessageCollector(msg => !msg.author.bot && msg.author.id == message.author.id, {max: 1, time: 60*1000})
 
             Mcccc.on('collect', coll => {
-
+                
                 if(isNaN(coll.content) || coll.content.length != 18) return msgInit.edit(new Discord.RichEmbed()
                     .setTitle('⚙️ Server Config')
                     .setDescription('Operação cancelada. *Este ID não é valido.*')
@@ -541,7 +543,7 @@ async function BotFunctions(Discord, client, message, args, db, serverinfo, msgI
             let Mcccccc = msgInit.channel.createMessageCollector(msg => !msg.author.bot && msg.author.id == message.author.id, {max: 1, time: 60*1000})
 
             Mcccccc.on('collect', coll => {
-
+                
                 if(isNaN(coll.content) || coll.content.length != 18) return msgInit.edit(new Discord.RichEmbed()
                     .setTitle('⚙️ Server Config')
                     .setDescription('Operação cancelada. *Este ID não é valido.*')
@@ -571,7 +573,7 @@ async function BotFunctions(Discord, client, message, args, db, serverinfo, msgI
             let Mccccccc = msgInit.channel.createMessageCollector(msg => !msg.author.bot && msg.author.id == message.author.id, {max: 1, time: 60*1000})
 
             Mccccccc.on('collect', coll => {
-
+                
                 if(isNaN(coll.content) || coll.content.length != 18) return msgInit.edit(new Discord.RichEmbed()
                     .setTitle('⚙️ Server Config')
                     .setDescription('Operação cancelada. *Este ID não é valido.*')

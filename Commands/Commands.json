@@ -1,6 +1,28 @@
 {
     "Commands":[
         {
+            "name":"cticket",
+            "desc":"Configurações para staffers administrarem tickets.",
+            "uso":"cticket",
+            "aliases":[
+                "cticket",
+                "ctk",
+                "configticket",
+                "ticketc"
+            ]
+        },
+        {
+            "name":"savedb",
+            "desc":"Cria um novo backup da database.",
+            "uso":"savedb",
+            "aliases":[
+                "savedb",
+                "bk",
+                "bkdb",
+                "backup"
+            ]
+        },
+        {
             "name":"svconfig",
             "desc":"Configura as ações do bot.",
             "uso":"svconfig",
@@ -51,13 +73,13 @@
         },
         {
             "name":"report",
-            "desc":"Enviará uma denuncia anonima aos superiores.",
+            "desc":"Enviará uma denúncia anonima aos superiores.",
             "uso":"report",
             "manutenção":false,
             "aliases":[
                 "report",
                 "reportar",
-                "denunciar",
+                "denúnciar",
                 "denuncia"
             ]
         },
@@ -108,13 +130,22 @@
         },
         {
             "name":"promover",
-            "desc":"Promove um membro a determinado carago.",
+            "desc":"Promove um membro a determinado cargo.",
             "uso":"Promover @Membro @Cargo.",
             "manutenção":false,
             "aliases":[
                 "promover",
                 "admitir",
                 "adicionar"
+            ]
+        },
+        {
+            "name":"rebaixar",
+            "desc":"Rebaixa determinado membro da staff.",
+            "uso":"rebaixar @membro @CargoAtual @CargoNovo",
+            "aliases":[
+                "rebaixar",
+                "rebaixamento"
             ]
         },
         {

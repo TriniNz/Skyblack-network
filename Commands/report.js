@@ -22,7 +22,7 @@ exports.run = async (Discord, client, message, args, db, serverinfo) => {
     message.author.send(new Discord.RichEmbed()
         .setTitle('🗳️ SkyBlack Denúncias!')
         .setDescription("Prezando pela qualidade de nosso servidor, utilizamos o sistema de reportes anônimos, ou seja, você pode reportar sem medo de que algo lhe aconteça.")
-        .addField('Para começar.',`Qual o nick utilizado pelo denunciado? `)
+        .addField('Para começar.',`Qual o nick utilizado pelo denúnciado? `)
         .setFooter("SkyBlack Network ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
         .setColor(serverinfo.map('color').value()[0])
     ).then(async sended => {
@@ -89,7 +89,7 @@ exports.run = async (Discord, client, message, args, db, serverinfo) => {
 
                                                 Ch.send(new Discord.RichEmbed()
                                                     .setTitle('🗳️ SkyBlack Denúncias!')
-                                                    .setDescription("Foi enviada uma nova denuncia.")
+                                                    .setDescription("Foi enviada uma nova denúncia.")
                                                     .addField("Usuario reportado:", nick)
                                                     .addField("Motivo:", motivo)
                                                     .addField("Provas:", prova)

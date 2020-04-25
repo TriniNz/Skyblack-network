@@ -8,7 +8,7 @@ exports.run = async (Discord, client, message, args, db, serverinfo, dbcmd) => {
     info = []
 
     for(let x = 0; x < name.length; x++) {
-        info.push(`*${x+1}*. **${name[x].charAt(0).toUpperCase() + name[x].substring(1)}**\n    • _Descrição_: ${desc[x]}\n    • _Utilização_: ${serverinfo.map('prefix').value()}${use[0]}\n    • _Metodos de uso:_ ${serverinfo.map('prefix').value()}*${String(aliases[x]).replace(/,+/g, `* - *${serverinfo.map('prefix').value()}`)}*\n`)
+        info.push(`*${x+1}*. **${name[x].charAt(0).toUpperCase() + name[x].substring(1)}:**\n    • _Descrição_: ${desc[x]}\n    • _Utilização_: ${serverinfo.map('prefix').value()}${use[x]}\n    • _Metódos de uso:_ ${serverinfo.map('prefix').value()}*${String(aliases[x]).replace(/,+/g, `* - *${serverinfo.map('prefix').value()}`)}*;\n`)
     }
 
     let cmds = subDividir(info, 3)
@@ -17,7 +17,7 @@ exports.run = async (Discord, client, message, args, db, serverinfo, dbcmd) => {
 
     message.channel.send(new Discord.RichEmbed()
         .setTitle('📖 Lista de comandos!')
-        .setDescription(`Meu prefixo é ${serverinfo.map('prefix').value()} e tenho ${info.length} comandos registrados. Entre eles temos: \n\n${cmds[paginaAtual].join('\n')}`)
+        .setDescription(`Meu prefixo é \`${serverinfo.map('prefix').value()}\` e tenho ${info.length} comandos registrados. Entre eles temos: \n\n${cmds[paginaAtual].join('\n')}`)
         .setFooter("SkyBlack Network ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
         .setColor(serverinfo.map('color').value()[0])
     ).then(async m => {

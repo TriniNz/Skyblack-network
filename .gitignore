@@ -2,3 +2,5 @@ itens.txt
 .env
 package-lock.json
 node_modules
+.gitignore
+correções.txt

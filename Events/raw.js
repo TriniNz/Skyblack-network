@@ -3,7 +3,7 @@ exports.run = async (Discord, client, raw, db) => {
     let serverinfo = db.get('Serverconfig'),
         messageID = serverinfo.map('ticketMessageID').value()[0],
         topicID = serverinfo.map('ticketCategoryID').value()[0],
-        emojis = ["🛒","🐞","⚙️","🔑"];
+        emojis = ["🛒","🐞","🔑","📨","🤖","💡"];
 
     if(raw.t == 'MESSAGE_REACTION_ADD') {
 
@@ -36,6 +36,18 @@ exports.run = async (Discord, client, raw, db) => {
             await msg.channel.bulkDelete(1)
         })
 
+        setTimeout(() => {
+        
+            Ch.fetchMessages({limit: 20}).then(Fetched => {
+                let fetchedforfind = Fetched.filter(Msg => Msg.author.id == author.id)
+                if(fetchedforfind.size < 1) Ch.delete(1500).then(() => author.send(new Discord.RichEmbed()
+                    .setFooter(`Seu ticket foi encerrado por inatividade.`)
+                    .setColor(serverinfo.map('color').value()[0])
+                ))
+            })
+
+        }, 6*1000*60);
+
     }
 
     if(raw.t == 'MESSAGE_REACTION_REMOVE') {
@@ -56,6 +68,8 @@ exports.run = async (Discord, client, raw, db) => {
 function indetify(member, emoji) {
     if(emoji == '🛒') return `Olá, ${member} você abriu um ticket para *Compras*. Diga sua duvida e aguarde ate que um superior venha saná-la.`;
     if(emoji == '🐞') return `Olá, ${member} você abriu um ticket para *Reportar bugs*. Para acelerar o processo envie-me as seguintes informações: \`\`\`Seu nick:\nExplicação do bug:\nProvas de que este bug existe:\`\`\``;
-    if(emoji == '⚙️') return `Olá, ${member} você abriu um ticket para *Duvidas em geral*. Neste caso, todas as dúvidas são validas, tanto de nossos bots, quanto do servidor ingame.`;
+    if(emoji == '📨') return `Olá, ${member} você abriu um ticket para *Qualquer dúvida relacionada ao servidor*. Diga sua duvida e aguarde ate que um superior venha saná-la.`;
     if(emoji == '🔑') return `Olá, ${member} você abriu um ticket para *Solicitar unban*. Para acelerar o processo envie-me as seguintes informações: \`\`\`Seu nick:\nStaffer que lhe baniu:\nMotivo do seu ban\nO que está errado em sua punição. Explique com detalhes.\`\`\``;
+    if(emoji == '💡') return `Olá, ${member} você abriu um ticket para *Solicitar tag*. Para acelerar o processo envie-me as seguintes informações: \`\`\`Seu nick:\nTag solicitada:\nProvas de que você possue esta tag no game.\`\`\``;
+    if(emoji == '🤖') return `Olá, ${member} você abriu um ticket para *Dúvidas sobre o bot*. Diga sua duvida e aguarde ate que um superior venha saná-la.`;
 }

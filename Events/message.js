@@ -1,15 +1,20 @@
 exports.run = async (Discord, client, message, db, dbcmd) => {
 
     const serverinfo = db.get('Serverconfig')
-    const prefix = serverinfo.map('prefix').value()
-    const devmode = serverinfo.map('devmode').value()
+    const prefix = serverinfo.map('prefix').value()[0]
+    const devmode = serverinfo.map('devmode').value()[0]
 
     if(message.isMentioned(client.user.id)) return message.channel.send(new Discord.RichEmbed()
         .setFooter(`👋 Olá ${message.author.tag}, meu prefixo é ${prefix} use ${prefix}cmdlist para ter acesso a todos meus comandos.`)
         .setColor(serverinfo.map('color').value()[0])
     )
 
-    if(message.channel.type == "dm" || message.author.bot || devmode && message.author.id != '429825875467304960') return;
+    if(message.channel.type == "dm" || message.author.bot) return;
+    
+    if(devmode && message.author.id != '429825875467304960') return message.channel.send(new Discord.RichEmbed()
+        .setFooter("⚠️ Ops! O DevMode está ativado, apenas o desenvolvedor pode usar comandos.")
+        .setColor(serverinfo.map('color').value()[0])
+    )
 
     const args = message.content.trim().split(/ +/g);
     const cmd = args.shift().toLowerCase().replace(prefix, '');
