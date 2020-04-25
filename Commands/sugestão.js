@@ -73,12 +73,12 @@ exports.run = async (Discord, client, message, args, db, serverinfo) => {
                                     if(reac.emoji.name == '✅') {
 
                                         Ch.send(new Discord.RichEmbed()
-                                            .setTitle('✉️ SkyBlack Sugestões!')
-                                            .setDescription("Foi enviada uma nova sugestão para avaliação!")
-                                            .addField('Qual o seu nick?', nick)
-                                            .addField('Qual a sua sugestão?', sugestao)
-                                            .addField('Por que deveria ser adicionada?', motivo)
-                                            .setFooter("SkyBlack Network ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
+                                            .setTitle(':bulb: │ Rede SkyBlack • Sugestão')
+                                            .addField(':bust_in_silhouette: │ Nick:', nick)
+                                            .addField(':newspaper: │ Sugestão:', sugestao)
+                                            .addField(':pencil: │ Por que deveríamos acrescenta-lá?', motivo)
+                                            .setThumbnail(message.author.displayAvatarURL)
+                                            .setFooter("Sugestão enviada por: " + message.author.tag + " • SkyBlack Network ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
                                             .setTimestamp(new Date())
                                             .setColor(serverinfo.map('color').value()[0])
                                         ).then(async msg => {await msg.react('✅'); await msg.react('❎')})
