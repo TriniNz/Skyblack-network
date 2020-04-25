@@ -15,22 +15,22 @@ exports.run = async (Discord, client, message, args, db, serverinfo) => {
         .setColor(serverinfo.map('color').value()[0])
     ).then(msg => {msg.delete(15*1000); message.delete(15*1000)});
 
-    let String = args.slice(2).join(' ');
-    if(args.length < 3) return message.channel.send(new Discord.RichEmbed()
+    let String = args.slice(1).join(' ');
+    if(args.length < 2) return message.channel.send(new Discord.RichEmbed()
         .setTitle('⚠️ Ops!')
-        .setDescription("Comando utilizado incorretamente. O anúncio deve conter mais de 3 caracteres.")
+        .setDescription("Comando utilizado incorretamente. O anúncio deve conter mais de 2 palavras")
         .setFooter("SkyBlack Network ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
         .setColor(serverinfo.map('color').value()[0])
     ).then(msg => {msg.delete(15*1000); message.delete(15*1000)});
 
 
     Ch.send(new Discord.RichEmbed()
-        .setAuthor("Anúncio!", "https://storage.googleapis.com/discordstreet/emojis/RingingBell.gif%22")
+        .setAuthor("Anúncio!", "https://cdn.discordapp.com/emojis/621455229790978070.gif?v=1")
         .setDescription(String)
         .setThumbnail(message.guild.iconURL)
         .setFooter(`Autor: ${message.author.username} • IP: ${serverinfo.map('IP').value()}`, message.author.displayAvatarURL)
         .setTimestamp(new Date())
         .setColor(serverinfo.map('color').value()[0])
-    ).then(Sucess => {Ch.send(`@everyone`).then(2*1000); message.delete(500)})
+    ).then(Sucess => {Ch.send(`@everyone`).then(2*1000).then(s => s.delete(1500)); message.delete(1500)})
 
 }

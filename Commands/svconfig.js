@@ -1,6 +1,6 @@
 exports.run = async (Discord, client, message, args, db, serverinfo) => {
 
-    console.log('adjaoksdjkoasd')
+    db.read()
 
     if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(new Discord.RichEmbed()
         .setTitle('⚠️ Ops!')
@@ -399,8 +399,8 @@ async function GameOptions(Discord, client, message, args, db, serverinfo, msgIn
 async function BotFunctions(Discord, client, message, args, db, serverinfo, msgInit) {
     msgInit.edit(new Discord.RichEmbed()
         .setTitle('⚙️ Server Config')
-        .addField(':one: ID da mensagem de Ticket', `• Atual: *${serverinfo.map('YTReqs').value()}*`)
-        .addField(':two: ID da categorias de Ticket', `• Atual: *${serverinfo.map('MiniYTReqs').value()}*`)
+        .addField(':one: ID da mensagem de Ticket', `• Atual: *${serverinfo.map('ticketMessageID').value()}*`)
+        .addField(':two: ID da categorias de Ticket', `• Atual: *${serverinfo.map('ticketMessageID').value()}*`)
         .addField(':three: DevMode', `• Atual: *${serverinfo.map('FromOption').value()[0] ? "Ativado" : "Desativado"}*`)
         .addField(':four: ID do canal de Sugestões', `• Atual: *${serverinfo.map('URLFormulario').value()}*`)
         .addField(':five: ID do canal de Denúncias', `• Atual: *${serverinfo.map('URLFormulario').value()}*`)

@@ -19,7 +19,7 @@ exports.run = async (Discord, client, message, args, db, serverinfo) => {
             'api_dev_key' : TokenAPI,
         });
         
-    pastebin.createPasteFromFile("../Database.json", `Backup - DataBase • ${time[2]} de ${time[1]}, ${time[3]}, ás ${time[4]}`, null, 1, "N")
+    pastebin.createPasteFromFile("Database.json", `Backup - DataBase • ${time[2]} de ${time[1]}, ${time[3]}, ás ${time[4]}`, null, 1, "N")
         .then(function (data) {
             message.channel.send(new Discord.RichEmbed()
                 .setTitle('📥 Backup.')

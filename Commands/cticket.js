@@ -23,13 +23,13 @@ exports.run = async (Discord, client, message, args, db, serverinfo) => {
     ).then(async msgInit => {
         await msgInit.react('1️⃣');
 
-        const RC =  msgInit.createReactionCollector((reaction, user) => ['1⃣','2⃣','3⃣','4⃣'].includes(reaction.emoji.name) && user.id == message.author.id, {max: 1, time: 60*1000})
+        const RC =  msgInit.createReactionCollector((reaction, user) => ['1️⃣','2⃣','3⃣','4⃣'].includes(reaction.emoji.name) && user.id == message.author.id, {max: 1, time: 60*1000})
 
         RC.on('collect', coll => {
-
+    console.log('a')
             switch (coll.emoji.name) {
                 case "1️⃣":
-                    message.author.send('O ticket foi deletado com').catch()
+                    message.author.send('O ticket foi deletado com sucesso.').catch()
                     message.channel.delete(1000)
                     
                 break;
