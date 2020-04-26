@@ -26,10 +26,22 @@ exports.run = async (Discord, client, message, args, db, serverinfo) => {
         const RC =  msgInit.createReactionCollector((reaction, user) => ['1️⃣','2⃣','3⃣','4⃣'].includes(reaction.emoji.name) && user.id == message.author.id, {max: 1, time: 60*1000})
 
         RC.on('collect', coll => {
-    console.log('a')
             switch (coll.emoji.name) {
                 case "1️⃣":
-                    message.author.send('O ticket foi deletado com sucesso.').catch()
+                    
+                    let emj = message.channel.name.split('-')[0],
+                    ticketaid = message.channel.topic.split(' ')[3]
+                    
+                    message.guild.channels.map(ch => {
+                        if(ch.type == 'text') ch.fetchMessage(serverinfo.map('ticketMessageID').value()[0]).then(async fetched => {
+                            await fetched.reactions.map(r => {if(r.emoji.name == emj) r.remove(ticketaid)})
+                        }).catch(() => 0);
+                    })
+
+                    message.author.send(new Discord.RichEmbed()
+                        .setFooter("Você deletou o ticket com sucesso.")
+                        .setColor(serverinfo.map('color').value()[0])
+                    ).catch(() => 0);
                     message.channel.delete(1000)
                     
                 break;

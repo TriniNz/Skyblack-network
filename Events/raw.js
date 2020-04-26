@@ -3,7 +3,7 @@ exports.run = async (Discord, client, raw, db) => {
     let serverinfo = db.get('Serverconfig'),
         messageID = serverinfo.map('ticketMessageID').value()[0],
         topicID = serverinfo.map('ticketCategoryID').value()[0],
-        emojis = ["🛒","🐞","🔑","📨","🤖","💡"];
+        emojis = ["🛒","🛠️","🔑","📨","🤖","💡"];
 
     if(raw.t == 'MESSAGE_REACTION_ADD') {
 
@@ -27,8 +27,8 @@ exports.run = async (Discord, client, raw, db) => {
         })
 
         await Ch.send(new Discord.RichEmbed()
-            .setTitle(`${indetify(raw.d.emoji.name)} | BlackSky Suporte!`)
-            .setDescription(`⟐ Olá, ${author} que abriu\n\n• Aguarde um membro da nossa equipe comparecer para que sua dúvida possa ser esclarecida e seu ticket respondido.\n• Caso não tenha resposta dentro de 1 hora, você poderá marcar a tag @:stars:Equipe SkyBlack:stars: \n• O abuso da menção, ou o uso da mesma em outros canais, poderá resultar em punição.\n\n                • Responderemos a esse ticket o mais rápido possível.\n\n• Você terá 1 hora para falar, caso não fale nada iremos fechar.\n\nAtt: Rede SkyBlack`)
+            .setTitle(`${indetify(raw.d.emoji.name)} | SkyBlack Suporte!`)
+            .setDescription(`${raw.d.emoji.name == "🔑" ? `⟐ Olá, ${author} que abriu\n\n• Aguarde um membro da nossa equipe comparecer para que sua dúvida possa ser esclarecida e seu ticket respondido.\n• Caso não tenha resposta dentro de 8 minutos, você poderá marcar a tag @:stars:Equipe SkyBlack:stars:\n• O abuso da menção, ou o uso da mesma em outros canais, poderá resultar em punição.\n\n• Responderemos a esse ticket o mais rápido possível.\n\n• Você terá 10 minutos para falar, caso não fale nada iremos fechar.\n\n• Você abriu o ticket de Revisão para sua revisão for aceita siga o seguinte modelo\n\n•Seu nickname:\n•Responsavel pela sua punição ou mute:\n•Defesa:\n•Comprovações de sua defesa (Provas a seu favor):\n\nAtt: Rede SkyBlack` : `⟐ Olá, ${author} que abriu\n\n• Aguarde um membro da nossa equipe comparecer para que sua dúvida possa ser esclarecida e seu ticket respondido.\n• Caso não tenha resposta dentro de 8 minutos, você poderá marcar a tag @:stars:Equipe SkyBlack:stars: \n• O abuso da menção, ou o uso da mesma em outros canais, poderá resultar em punição.\n\n• Responderemos a esse ticket o mais rápido possível.\n\n• Você terá 10 minutos para falar, caso não fale nada iremos fechar.\n\nAtt: Rede SkyBlack`}`)
             .setFooter("SkyBlack Network ©️ IP: " + serverinfo.map('IP').value(), guild.iconURL)
             .setColor(serverinfo.map('color').value()[0])
         ).then(async msg => {
@@ -37,16 +37,25 @@ exports.run = async (Discord, client, raw, db) => {
         })
 
         setTimeout(() => {
-        
+            let emj = Ch.name.split('-')[0];
             Ch.fetchMessages({limit: 20}).then(Fetched => {
                 let fetchedforfind = Fetched.filter(Msg => Msg.author.id == author.id)
-                if(fetchedforfind.size < 1) Ch.delete(1500).then(() => author.send(new Discord.RichEmbed()
-                    .setFooter(`Seu ticket foi encerrado por inatividade.`)
-                    .setColor(serverinfo.map('color').value()[0])
-                ))
+                if(fetchedforfind.size < 1) Ch.delete(1500).then(() => {
+                    
+                    guild.channels.map(ch => {
+                        if(ch.type == 'text') ch.fetchMessage(messageID).then(async fetched => {
+                            await fetched.reactions.map(r => {if(r.emoji.name == emj) r.remove(author)})
+                        }).catch(() => 0);
+                    })
+
+                    author.send(new Discord.RichEmbed()
+                        .setFooter(`Seu ticket foi encerrado por inatividade.`)
+                        .setColor(serverinfo.map('color').value()[0])
+                    )
+                })
             })
 
-        }, 20*1000*60);
+        }, 10*1000*60);
 
     }
 
@@ -67,7 +76,7 @@ exports.run = async (Discord, client, raw, db) => {
 
 function indetify(emoji) {
     if(emoji == '🛒') return `🛒 Ticket Compras`;
-    if(emoji == '🐞') return `🐞 Ticket Bugs`;
+    if(emoji == '🛠️') return `🛠️ Ticket Bugs`;
     if(emoji == '📨') return `📨 Ticket Dúvidas`;
     if(emoji == '🔑') return `🔑 Ticket Unban`;
     if(emoji == '💡') return `💡 Ticket Tag`;

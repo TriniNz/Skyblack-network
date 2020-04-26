@@ -30,7 +30,7 @@ exports.run = async (Discord, client, message, db, dbcmd) => {
             let cmdFound = require(`../Commands/${cmdSearch.name}.js`);
             return cmdFound.run(Discord, client, message, args, db, serverinfo, dbcmd)
         } catch(Err) {
-
+          console.log(Err)
             if(Err.message === "Cannot read property 'manutenção' of undefined") return message.channel.send(new Discord.RichEmbed()
                 .setTitle('⚠️ Ops!')
                 .setDescription("Comando não encontrado! Use `.help` para ver a lista de comandos.")

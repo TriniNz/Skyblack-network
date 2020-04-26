@@ -51,7 +51,7 @@ exports.run = async (Discord, client, message, args, db, serverinfo) => {
 
     ch.send(new Discord.RichEmbed()
         .setAuthor("👥 Changelog.", message.guild.iconURL)
-        .setDescription(`${Member}, ex-${role[0]} foi rebaixado para ${Role[1]}.`)
+        .setDescription(`${Member}, ex-${Role[0]} foi rebaixado para ${Role[1]}.`)
         .setFooter(`Responsavel: ${message.author.username} • SkyBlack Network ©️`)
         .setColor(serverinfo.map('color').value()[0])
     )
