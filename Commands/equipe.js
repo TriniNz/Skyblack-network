@@ -25,11 +25,11 @@ exports.run = async (Discord, client, message, args, db, serverinfo) => {
     }
 
     const Embed = {
-        title: "👥 Equipe de moderação SkyBlack!",
+        title: `👥 Equipe de moderação ${serverinfo.map('clientName').value()}!`,
         fields: Fields,
         color: Number("0x" + serverinfo.map('color').value()[0].replace('#', '')),
         footer: {
-            text: "SkyBlack Network ©️ IP: " + serverinfo.map('IP').value(),
+            text: serverinfo.map('clientName').value() + " ©️ IP: " + serverinfo.map('IP').value(),
             icon_url: message.author.displayAvatarURL
         }
     }

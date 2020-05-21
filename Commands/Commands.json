@@ -4,6 +4,7 @@
             "name":"cticket",
             "desc":"Configurações para staffers administrarem tickets.",
             "uso":"cticket",
+            "manutenção":false,
             "aliases":[
                 "cticket",
                 "ctk",
@@ -15,6 +16,7 @@
             "name":"savedb",
             "desc":"Cria um novo backup da database.",
             "uso":"savedb",
+            "manutenção":false,
             "aliases":[
                 "savedb",
                 "bk",
@@ -143,6 +145,7 @@
             "name":"rebaixar",
             "desc":"Rebaixa determinado membro da staff.",
             "uso":"rebaixar @membro @CargoAtual @CargoNovo",
+            "manutenção":false,
             "aliases":[
                 "rebaixar",
                 "rebaixamento"

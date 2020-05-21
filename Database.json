@@ -1,6 +1,7 @@
 {
   "Serverconfig": [
     {
+      "clientName": "SkyBlack",
       "color": "ff9933",
       "padrãoColor": "ff9933",
       "devmod": false,

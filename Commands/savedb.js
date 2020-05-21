@@ -24,7 +24,7 @@ exports.run = async (Discord, client, message, args, db, serverinfo) => {
             message.channel.send(new Discord.RichEmbed()
                 .setTitle('📥 Backup.')
                 .setDescription("Backup executado com sucesso. Enviei em sua DM.")
-                .setFooter("SkyBlack Network ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
+                .setFooter(serverinfo.map('clientName').value() + " ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
                 .setColor(serverinfo.map('color').value()[0])
             ).then(msg => msg.delete(15*1000))
 

@@ -8,7 +8,7 @@ exports.run = async (Discord, client, message, args, db, serverinfo) => {
         if(!Ch) return message.channel.send(new Discord.RichEmbed()
             .setTitle('⚠️ Ops!')
             .setDescription("Não foi definido nem um canal de sugestões. Chame um superior para que ele faça ísto com o comando `.svconfig`.")
-            .setFooter("SkyBlack Network ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
+            .setFooter(serverinfo.map('clientName').value() + " ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
             .setColor(serverinfo.map('color').value()[0])
         ).then(msg => {msg.delete(15*1000); message.delete(15*1000)});
 
@@ -18,11 +18,11 @@ exports.run = async (Discord, client, message, args, db, serverinfo) => {
     ).then(msg => {msg.delete(15*1000); message.delete(15*1000)});
 
     message.author.send(new Discord.RichEmbed()
-        .setTitle('✉️ SkyBlack Sugestões!')
-        .setDescription("Nós, dá SkyBlack prezamos pela melhor jogabilidade de nossos membros, por isso, aceitamos sugestões de como melhorar :)")
+        .setTitle('✉️ ' + serverinfo.map('clientName').value() +  ' Sugestões!')
+        .setDescription(`Nós, dá ${serverinfo.map('clientName').value()} prezamos pela melhor jogabilidade de nossos membros, por isso, aceitamos sugestões de como melhorar :)`)
         .addField("Em primeiro lugar...", "Nós diga qual o seu nick.")
         .setColor(serverinfo.map('color').value()[0])
-        .setFooter("SkyBlack Network ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
+        .setFooter(serverinfo.map('clientName').value() + " ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
     ).then(sended => {
     
         const filter = msg => !msg.author.bot && msg.content.length > 3;
@@ -32,9 +32,9 @@ exports.run = async (Discord, client, message, args, db, serverinfo) => {
             nick = c.content;
 
             message.author.send(new Discord.RichEmbed()
-                .setTitle('✉️ SkyBlack Sugestões!')
+                .setTitle('✉️ ' + serverinfo.map('clientName').value() +  '  Sugestões!')
                 .addField("Agora nós diga", "Qual a sua sugestão?")
-                .setFooter("SkyBlack Network ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
+                .setFooter(serverinfo.map('clientName').value() + " ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
                 .setColor(serverinfo.map('color').value()[0])
             ).then(sendedtwo => {
 
@@ -44,9 +44,9 @@ exports.run = async (Discord, client, message, args, db, serverinfo) => {
                     sugestao = ctwo.content;
 
                     message.author.send(new Discord.RichEmbed()
-                        .setTitle('✉️ SkyBlack Sugestões!')
+                        .setTitle('✉️ ' + serverinfo.map('clientName').value() +  '  Sugestões!')
                         .addField("E por fim", "Por que deveriamos aceitar sua sugestão?")
-                        .setFooter("SkyBlack Network ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
+                        .setFooter(serverinfo.map('clientName').value() + " ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
                         .setColor(serverinfo.map('color').value()[0])
                     ).then(sendedthree => {
 
@@ -56,12 +56,12 @@ exports.run = async (Discord, client, message, args, db, serverinfo) => {
                                 motivo = cthree.content;
 
                             message.author.send(new Discord.RichEmbed()
-                                .setTitle('✉️ SkyBlack Sugestões!')
+                                .setTitle('✉️ ' + serverinfo.map('clientName').value() +  '  Sugestões!')
                                 .setDescription("Agora que você já respondeu todas as perguntas, veja como ficou sua sugestão! Caso queira cancelar, basta reagir com ❎, ou se deseja envia-lá reaja com ✅.")
                                 .addField('Qual o seu nick?', nick)
                                 .addField('Qual a sua sugestão?', sugestao)
                                 .addField('Por que deveria ser adicionada?', motivo)
-                                .setFooter("SkyBlack Network ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
+                                .setFooter(serverinfo.map('clientName').value() + " ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
                                 .setColor(serverinfo.map('color').value()[0])
                             ).then(async Confirm => {
                                 await Confirm.react('✅'); await Confirm.react('❎');
@@ -73,12 +73,12 @@ exports.run = async (Discord, client, message, args, db, serverinfo) => {
                                     if(reac.emoji.name == '✅') {
 
                                         Ch.send(new Discord.RichEmbed()
-                                            .setTitle(':bulb: │ Rede SkyBlack • Sugestão')
+                                            .setTitle(`:bulb: │ ${serverinfo.map('clientName').value()} • Sugestão`)
                                             .addField(':bust_in_silhouette: │ Nick:', nick)
                                             .addField(':newspaper: │ Sugestão:', sugestao)
                                             .addField(':pencil: │ Por que deveríamos acrescenta-lá?', motivo)
                                             .setThumbnail(message.author.displayAvatarURL)
-                                            .setFooter("Sugestão enviada por: " + message.author.tag + " • SkyBlack Network ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
+                                            .setFooter("Sugestão enviada por: " + message.author.tag + " • " + serverinfo.map('clientName').value() + "©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
                                             .setTimestamp(new Date())
                                             .setColor(serverinfo.map('color').value()[0])
                                         ).then(async msg => {await msg.react('✅'); await msg.react('❎')})

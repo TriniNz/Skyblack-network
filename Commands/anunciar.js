@@ -3,7 +3,7 @@ exports.run = async (Discord, client, message, args, db, serverinfo) => {
     if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(new Discord.RichEmbed()
         .setTitle('⚠️ Ops!')
         .setDescription("Você não tem permissão para executar este comando.")
-        .setFooter("SkyBlack Network ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
+        .setFooter(serverinfo.map('clientName').value() + " ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
         .setColor(serverinfo.map('color').value()[0])
     ).then(msg => {msg.delete(15*1000); message.delete(15*1000)});
 
@@ -11,7 +11,7 @@ exports.run = async (Discord, client, message, args, db, serverinfo) => {
     if(!Ch) return message.channel.send(new Discord.RichEmbed()
         .setTitle('⚠️ Ops!')
         .setDescription("Comando utilizado incorretamente. `.anunciar @Canal Texto a ser anunciado.`")
-        .setFooter("SkyBlack Network ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
+        .setFooter(serverinfo.map('clientName').value() + " ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
         .setColor(serverinfo.map('color').value()[0])
     ).then(msg => {msg.delete(15*1000); message.delete(15*1000)});
 
@@ -19,7 +19,7 @@ exports.run = async (Discord, client, message, args, db, serverinfo) => {
     if(args.length < 2) return message.channel.send(new Discord.RichEmbed()
         .setTitle('⚠️ Ops!')
         .setDescription("Comando utilizado incorretamente. O anúncio deve conter mais de 2 palavras")
-        .setFooter("SkyBlack Network ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
+        .setFooter(serverinfo.map('clientName').value() + " ©️ IP: " + serverinfo.map('IP').value(), message.guild.iconURL)
         .setColor(serverinfo.map('color').value()[0])
     ).then(msg => {msg.delete(15*1000); message.delete(15*1000)});
 
